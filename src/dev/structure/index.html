@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style type="text/css">
+        body{
+            margin:0;
+            padding:0;
+        }
+            .container{
+                /*position:relative;*/
+                display:inline-block;
+                max-width:100px;
+                border:1px solid #000;
+            
+            }
+            .container:after{
+                  content: "";
+                  display: table;
+                  clear: both;
+            }
+
+            .container .display,
+            .container .btn{
+                float:left;
+                line-height:100%;
+            }
+
+            .options{
+
+                position: absolute;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                background: #FFF;
+                border: 1px solid #000;
+                top: 100px;
+                left: 100px;
+                display:inline-block;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="bbSelectBox" class="container">
+            <div class="display">Select</div>
+            <div class="btn">1</div>
+            <ul class="options">
+                <li>lorem ipsum momo fofo yoyo</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
+
+        <script>
+            function showBbSelectOptions(){
+                //declare event
+                
+                var evt = new MouseEvent("click", {
+                    canBubble:true, //
+                    cancelable:true, //
+                    view:window
+                });
+
+                //main container
+                var container_x = this.offsetTop,
+                    container_y = this.offsetLeft;
+
+                console.dir(this);
+
+                //get options
+                var options = this.getElementsByTagName('UL')[0];
+
+                options.style.top=container_y;
+                options.style.left=container_x;
+                console.dir(options);
+
+                //
+            }
+            document.getElementById('bbSelectBox').addEventListener('click', showBbSelectOptions);
+        </script>
+  
+    </body>
+</html>
